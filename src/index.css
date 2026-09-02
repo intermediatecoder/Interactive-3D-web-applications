@@ -7,8 +7,8 @@
   font-style: normal;
   line-height: 1.5;
   scroll-behavior: smooth;
-  color-scheme: light dark;
-  color: #eae5ec;
+  color-scheme: dark;
+  color: var(--textColor);
   background-color: var(--backgroundColor);
 
   font-synthesis: none;
@@ -18,11 +18,41 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  --accentColor: #c2a4ff;
+
   --backgroundColor: #0b080c;
+  --textColor: #ffffff;
+  --textSecondary: #e2e2e2;
+  --accentColor: #c2a4ff;
+  --secondaryColor: #9e78e4;
+  --boxBorder: #363636;
+  --tagBg: rgba(255, 255, 255, 0.15);
+  --tagBorder: rgba(255, 255, 255, 0.3);
+  --tagColor: #ffffff;
+  --cardBg: rgba(255, 255, 255, 0.04);
+  --orbOpacity: 0.8;
+  --navColor: #ffffff;
+  --toggleBg: rgba(255, 255, 255, 0.12);
+  --toggleBorder: rgba(255, 255, 255, 0.25);
+  --toggleThumb: #c2a4ff;
+  --toggleIcon: #ffffff;
+  --careerGrad: linear-gradient(0deg, #7f40ff, #ffffff);
+  --cursorBg: #c2a4ff;
+  --cursorGlow: rgba(175, 131, 255, 0.7);
+  --cursorHoverText: #0b080c;
+  --socialIconDefault: #ffffff;
   --vh: 100vh;
   --vh: 100svh;
 }
+
+body,
+.container-main,
+.work-box,
+.what-content,
+.career-info-box,
+.header {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
 h1,
 h2,
 h3,
@@ -30,6 +60,7 @@ h4,
 h5,
 h6 {
   font-family: "Geist", sans-serif;
+  color: var(--textColor);
 }
 body {
   overflow: hidden;
@@ -58,7 +89,8 @@ main {
 body {
   margin: 0;
   height: auto;
-  background-color: #000;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
   flex-grow: 1;
   --cWidth: calc(100% - 30px);
   --cMaxWidth: 1920px;

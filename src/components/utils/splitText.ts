@@ -23,58 +23,61 @@ export default function setSplitText() {
     para.classList.add("visible");
     if (para.anim) {
       para.anim.progress(1).kill();
-      para.split?.revert();
+    }
+    if (para.split) {
+      para.split.revert();
     }
 
     para.split = new SplitText(para, {
-      type: "lines,words",
-      linesClass: "split-line",
+      type: "words",
     });
 
     para.anim = gsap.fromTo(
-      para.split.words,
-      { autoAlpha: 0, y: 80 },
+      para.split!.words,
+      { autoAlpha: 0, y: 30, filter: "blur(4px)" },
       {
         autoAlpha: 1,
         scrollTrigger: {
-          trigger: para.parentElement?.parentElement,
-          toggleActions: ToggleAction,
-          start: TriggerStart,
-        },
-        duration: 1,
-        ease: "power3.out",
-        y: 0,
-        stagger: 0.02,
-      }
-    );
-  });
-  titles.forEach((title: ParaElement) => {
-    if (title.anim) {
-      title.anim.progress(1).kill();
-      title.split?.revert();
-    }
-    title.split = new SplitText(title, {
-      type: "chars,lines",
-      linesClass: "split-line",
-    });
-    title.anim = gsap.fromTo(
-      title.split.chars,
-      { autoAlpha: 0, y: 80, rotate: 10 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: title.parentElement?.parentElement,
+          trigger: para.parentElement?.parentElement || para,
           toggleActions: ToggleAction,
           start: TriggerStart,
         },
         duration: 0.8,
-        ease: "power2.inOut",
+        ease: "power3.out",
+        y: 0,
+        filter: "blur(0px)",
+        stagger: 0.012,
+      }
+    );
+  });
+
+  titles.forEach((title: ParaElement) => {
+    if (title.anim) {
+      title.anim.progress(1).kill();
+    }
+    if (title.split) {
+      title.split.revert();
+    }
+    title.split = new SplitText(title, {
+      type: "chars",
+    });
+    title.anim = gsap.fromTo(
+      title.split!.chars,
+      { autoAlpha: 0, y: 50, rotate: 8 },
+      {
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: title.parentElement?.parentElement || title,
+          toggleActions: ToggleAction,
+          start: TriggerStart,
+        },
+        duration: 0.8,
+        ease: "power2.out",
         y: 0,
         rotate: 0,
         stagger: 0.03,
       }
     );
   });
-
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
 }
+

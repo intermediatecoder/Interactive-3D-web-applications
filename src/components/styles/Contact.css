@@ -8,6 +8,7 @@
   font-weight: 400;
   text-transform: uppercase;
   margin: 0;
+  color: var(--textColor);
 }
 .contact-flex {
   display: flex;
@@ -16,7 +17,8 @@
 .contact-flex h4 {
   font-weight: 500;
   margin: 0;
-  opacity: 0.6;
+  opacity: 0.8;
+  color: var(--textSecondary);
 }
 .contact-box {
   display: flex;
@@ -25,15 +27,19 @@
 .contact-flex p {
   margin-top: 10px;
   margin-bottom: 20px;
+  color: var(--textColor);
 }
 a.contact-social {
   font-size: 25px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--boxBorder);
+  color: var(--textColor);
+  transition: all 0.3s ease;
 }
 .contact-box h2 {
   font-weight: 400;
   font-size: 23px;
   margin: 0;
+  color: var(--textColor);
 }
 .contact-box h2 > span {
   color: var(--accentColor);
@@ -44,7 +50,8 @@ a.contact-social {
   line-height: 20px;
   display: flex;
   gap: 10px;
-  opacity: 0.5;
+  opacity: 0.7;
+  color: var(--textSecondary);
 }
 @media only screen and (max-width: 1600px) {
   .contact-section h3 {

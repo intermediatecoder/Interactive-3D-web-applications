@@ -24,6 +24,8 @@
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
+  opacity: var(--orbOpacity);
+  transition: opacity 0.4s ease;
 }
 .nav-fade {
   position: fixed;
@@ -63,6 +65,8 @@
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
+  opacity: var(--orbOpacity);
+  transition: opacity 0.4s ease;
 }
 @keyframes loadingCircle2 {
   100% {
@@ -98,32 +102,31 @@
   opacity: 0;
 }
 .character-model {
-  height: 80%;
-  height: 80vh;
   position: absolute;
-  max-width: 1920px;
-  max-height: 1080px;
+  top: 0;
+  left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  left: 50%;
-  z-index: 0;
-  bottom: 50px;
-  pointer-events: inherit;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
 }
 .character-model::after {
   content: "";
-  width: 100vw;
-  height: 250px;
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    var(--backgroundColor) 70%
-  );
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
   position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: var(--backgroundColor);
+  transform: translate(0%, -50%);
+  top: 50%;
+  z-index: 1;
+  filter: blur(30px);
+  animation: backlight 3s forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 .character-model::before {
   content: "";
@@ -177,6 +180,7 @@
   line-height: 28px;
   font-weight: 500;
   font-family: "Geist", sans-serif;
+  color: var(--textColor);
 }
 
 /* .landing-intro h1 span {
@@ -211,13 +215,14 @@
   flex-wrap: nowrap;
   text-transform: uppercase;
   letter-spacing: 2px;
+  color: var(--textColor);
 }
 .landing-h2-info-1 {
   position: absolute;
   top: 0;
 }
 h2.landing-info-h2 {
-  color: #c481ff;
+  color: var(--accentColor);
   font-size: 42px;
   width: 120%;
   margin: 0;

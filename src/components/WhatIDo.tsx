@@ -87,24 +87,28 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
-              </p>
-              <h5>Skillset & tools</h5>
+              <h3>FRONTEND</h3>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">React.js</div>
                 <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">JavaScript (ES6+)</div>
+                <div className="what-tags">HTML5</div>
+                <div className="what-tags">CSS3</div>
+                <div className="what-tags">Tailwind CSS</div>
+                <div className="what-tags">React Native</div>
+                <div className="what-tags">Redux</div>
+                <div className="what-tags">Zustand</div>
+                <div className="what-tags">PostHog</div>
+                <div className="what-tags">Context API</div>
+                <div className="what-tags">TanStack Query</div>
+                <div className="what-tags">React Hook Form</div>
+                <div className="what-tags">Material UI</div>
+                <div className="what-tags">shadcn/ui</div>
+                <div className="what-tags">Storybook</div>
+                <div className="what-tags">Figma</div>
+                <div className="what-tags">Responsive Design</div>
+                <div className="what-tags">Component Architecture</div>
+                <div className="what-tags">API Integration</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -128,22 +132,58 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DESIGN</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
-              </p>
-              <h5>Skillset & tools</h5>
+              <h3>BACKEND</h3>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">Node.js</div>
+                <div className="what-tags">Express.js</div>
+                <div className="what-tags">Spring Boot</div>
+                <div className="what-tags">REST APIs</div>
+                <div className="what-tags">GraphQL</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">Microservices</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Git & GitHub</div>
+                <div className="what-tags">RBAC</div>
+                <div className="what-tags">Service/Repository Architecture</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+          <div
+            className="what-content what-noTouch"
+            ref={(el) => setRef(el, 2)}
+          >
+            <div className="what-border1">
+              <svg height="100%">
+                <line
+                  x1="0"
+                  y1="100%"
+                  x2="100%"
+                  y2="100%"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
+              <h3>DATABASE & TOOLS</h3>
+              <div className="what-content-flex">
+                <div className="what-tags">PostgreSQL</div>
+                <div className="what-tags">Prisma ORM</div>
+                <div className="what-tags">MySQL</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">TimescaleDB</div>
+                <div className="what-tags">Git</div>
+                <div className="what-tags">GitHub</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Postman</div>
+                <div className="what-tags">DBeaver</div>
+                <div className="what-tags">Linux</div>
+                <div className="what-tags">Cursor</div>
+                <div className="what-tags">Claude</div>
+                <div className="what-tags">Codex</div>
               </div>
               <div className="what-arrow"></div>
             </div>

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { MdArrowOutward } from "react-icons/md";
+import { MdArrowOutward, MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 interface Props {
   image: string;
+  images?: string[];
   alt?: string;
   video?: string;
   link?: string;
@@ -11,6 +12,12 @@ interface Props {
 const WorkImage = (props: Props) => {
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const imageList =
+    props.images && props.images.length > 0 ? props.images : [props.image];
+  const currentImg = imageList[activeImageIndex] || props.image;
+
   const handleMouseEnter = async () => {
     if (props.video) {
       setIsVideo(true);
@@ -21,24 +28,80 @@ const WorkImage = (props: Props) => {
     }
   };
 
+  const handlePrevImg = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setActiveImageIndex((prev) => (prev === 0 ? imageList.length - 1 : prev - 1));
+  };
+
+  const handleNextImg = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setActiveImageIndex((prev) => (prev === imageList.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <div className="work-image">
-      <a
+      <div
         className="work-image-in"
-        href={props.link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)}
-        target="_blank"
-        data-cursor={"disable"}
       >
         {props.link && (
-          <div className="work-link">
+          <a
+            className="work-link"
+            href={props.link}
+            target="_blank"
+            rel="noreferrer"
+            data-cursor={"disable"}
+            title="Open Project"
+          >
             <MdArrowOutward />
-          </div>
+          </a>
         )}
-        <img src={props.image} alt={props.alt} />
+        <img
+          src={currentImg}
+          alt={`${props.alt || "Project"} preview ${activeImageIndex + 1}`}
+        />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
-      </a>
+
+        {imageList.length > 1 && (
+          <>
+            <button
+              type="button"
+              className="work-img-nav work-img-prev"
+              onClick={handlePrevImg}
+              aria-label="Previous image"
+              data-cursor="disable"
+            >
+              <MdChevronLeft />
+            </button>
+            <button
+              type="button"
+              className="work-img-nav work-img-next"
+              onClick={handleNextImg}
+              aria-label="Next image"
+              data-cursor="disable"
+            >
+              <MdChevronRight />
+            </button>
+            <div className="work-img-dots">
+              {imageList.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`work-img-dot ${idx === activeImageIndex ? "active" : ""}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    setActiveImageIndex(idx);
+                  }}
+                  data-cursor="disable"
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
