@@ -26,6 +26,12 @@ const Landing = ({ children }: PropsWithChildren) => {
             </h2>
           </div>
         </div>
+        <div className="scroller-indicator">
+          <span>SCROLL</span>
+          <div className="scroller-mouse">
+            <div className="scroller-dot"></div>
+          </div>
+        </div>
         {children}
       </div>
     </>

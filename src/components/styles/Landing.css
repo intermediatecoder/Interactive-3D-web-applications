@@ -361,3 +361,56 @@ h2.landing-info-h2 {
     font-size: 75px;
   }
 }
+
+.scroller-indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.scroller-indicator span {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: var(--accentColor);
+  text-transform: uppercase;
+}
+.scroller-mouse {
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid var(--accentColor);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+.scroller-dot {
+  width: 3px;
+  height: 7px;
+  background-color: var(--accentColor);
+  border-radius: 3px;
+  position: absolute;
+  top: 6px;
+  animation: scrollWheel 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
