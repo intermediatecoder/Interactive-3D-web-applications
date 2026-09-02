@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("bhadaneadi.23@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
@@ -10,8 +19,13 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href="mailto:bhadaneadi.23@mail.com" data-cursor="disable">
-                bhadaneadi.23@mail.com
+              <a
+                href="mailto:bhadaneadi.23@gmail.com"
+                data-cursor="disable"
+                onClick={handleCopyEmail}
+                title="Click to copy & mail"
+              >
+                {copied ? "Copied to clipboard! ✓" : "bhadaneadi.23@gmail.com"}
               </a>
             </p>
             <h4>Phone</h4>
